@@ -1,0 +1,1103 @@
+{
+	"info": {
+		"_postman_id": "68f05873-63f2-4750-8a7f-c7c0cf024dfa",
+		"name": "Intelix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "Dynamic",
+					"item": [
+						{
+							"name": "Dynamic analysis",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "X-Correlation-Id",
+										"type": "text",
+										"value": "test",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/dynamic/v1",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"dynamic",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By JobId (Dynamic)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4a11213f-30c5-4535-bcf8-ea38d999dcf3",
+										"exec": [
+											"pm.globals.set(\"job_id\", \"00000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/dynamic/v1/reports/{{job_id}}",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"dynamic",
+										"v1",
+										"reports",
+										"{{job_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By FileHash (Dynamic)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8dc56d34-bf39-4d4f-b2d0-56d461bbf339",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ef838024-dffb-4062-9358-d20b7ebb94ca",
+										"exec": [
+											"pm.globals.set(\"sha_256\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/dynamic/v1/reports?sha256={{sha_256}}",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"dynamic",
+										"v1",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "sha256",
+											"value": "{{sha_256}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dynamic analysis - HTML report",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "",
+										"type": "text",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "report_format",
+											"value": "html",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/dynamic/v1",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"dynamic",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By JobId (Dynamic) - HTML report",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4a11213f-30c5-4535-bcf8-ea38d999dcf3",
+										"exec": [
+											"pm.globals.set(\"job_id\", \"00000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/dynamic/v1/reports/{{job_id}}?report_format=html",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"dynamic",
+										"v1",
+										"reports",
+										"{{job_id}}"
+									],
+									"query": [
+										{
+											"key": "report_format",
+											"value": "html"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By FileHash (Dynamic) - HTML report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8dc56d34-bf39-4d4f-b2d0-56d461bbf339",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ef838024-dffb-4062-9358-d20b7ebb94ca",
+										"exec": [
+											"pm.globals.set(\"sha_256\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/dynamic/v1/reports?sha256={{sha_256}}&report_format=html",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"dynamic",
+										"v1",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "sha256",
+											"value": "{{sha_256}}"
+										},
+										{
+											"key": "report_format",
+											"value": "html"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Static",
+					"item": [
+						{
+							"name": "Static analysis",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "X-Correlation-Id",
+										"type": "text",
+										"value": "test",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/static/v1",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"static",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By JobId (Static)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3d656add-22a9-4a0e-bb92-289cbc7929b9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "a78e297b-7543-4654-9390-da28cc2dff82",
+										"exec": [
+											"pm.globals.set(\"job_id\", \"00000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/static/v1/reports/{{job_id}}",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"static",
+										"v1",
+										"reports",
+										"{{job_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By FileHash (Static)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "286c46dd-4f74-4ff2-b98e-24d191872617",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "dfb18c16-819d-4e1f-9443-01d06d05d2a3",
+										"exec": [
+											"pm.globals.set(\"sha_256\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/static/v1/reports?sha256={{sha_256}}",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"static",
+										"v1",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "sha256",
+											"value": "{{sha_256}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Static analysis - HTML report",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "X-Correlation-Id",
+										"type": "text",
+										"value": "test",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "report_format",
+											"value": "html",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/static/v1",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"static",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By JobId (Static) - HTML report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3d656add-22a9-4a0e-bb92-289cbc7929b9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "a78e297b-7543-4654-9390-da28cc2dff82",
+										"exec": [
+											"pm.globals.set(\"job_id\", \"00000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/static/v1/reports/{{job_id}}?report_format=html",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"static",
+										"v1",
+										"reports",
+										"{{job_id}}"
+									],
+									"query": [
+										{
+											"key": "report_format",
+											"value": "html"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By FileHash (Static) - HTML report",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "286c46dd-4f74-4ff2-b98e-24d191872617",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "dfb18c16-819d-4e1f-9443-01d06d05d2a3",
+										"exec": [
+											"pm.globals.set(\"sha_256\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{region}}.{{base_url}}/analysis/file/static/v1/reports?sha256={{sha_256}}&report_format=html",
+									"protocol": "https",
+									"host": [
+										"{{region}}",
+										"{{base_url}}"
+									],
+									"path": [
+										"analysis",
+										"file",
+										"static",
+										"v1",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "sha256",
+											"value": "{{sha_256}}"
+										},
+										{
+											"key": "report_format",
+											"value": "html"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Lookup",
+			"item": [
+				{
+					"name": "File hash lookup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"sha_256\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/files/v1/{{sha_256}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"files",
+								"v1",
+								"{{sha_256}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "URL lookup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"url\", encodeURIComponent(\"sophostest.com/malware\"));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/urls/v1/{{url}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"urls",
+								"v1",
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IP lookup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"ip\", \"127.0.0.1\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/ips/v1/{{ip}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"ips",
+								"v1",
+								"{{ip}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "APK lookup (cert hash)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"cert_hash\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/apk/v1/{{cert_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"apk",
+								"v1",
+								"{{cert_hash}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "APK lookup (cert hash/package name)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"cert_hash\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+									"pm.globals.set(\"package_name\", \"com-test\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/apk/v1/{{cert_hash}}/{{package_name}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"apk",
+								"v1",
+								"{{cert_hash}}",
+								"{{package_name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "APK lookup (cert hash/package name/version)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"cert_hash\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+									"pm.globals.set(\"package_name\", \"com-test\");",
+									"pm.globals.set(\"apk_version\", \"1\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/apk/v1/{{cert_hash}}/{{package_name}}/{{apk_version}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"apk",
+								"v1",
+								"{{cert_hash}}",
+								"{{package_name}}",
+								"{{apk_version}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "APK lookup (cert hash/package name/version/file hash)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2f4db98-b418-4811-b10a-0cc48a51f20b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8e9f7b1-ecfe-448d-8c27-490692f1bead",
+								"exec": [
+									"pm.globals.set(\"cert_hash\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+									"pm.globals.set(\"package_name\", \"com-test\");",
+									"pm.globals.set(\"apk_version\", \"1\");",
+									"pm.globals.set(\"apk_hash\", \"0000000000000000000000000000000000000000000000000000000000000000\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{region}}.{{base_url}}/lookup/apk/v1/{{cert_hash}}/{{package_name}}/{{apk_version}}/{{apk_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{region}}",
+								"{{base_url}}"
+							],
+							"path": [
+								"lookup",
+								"apk",
+								"v1",
+								"{{cert_hash}}",
+								"{{package_name}}",
+								"{{apk_version}}",
+								"{{apk_hash}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cognito AccessToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "78325bd3-bc7d-4647-8690-fcee1c6ed34a",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.globals.set(\"access_token\", jsonData.access_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{auth_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{base_url}}/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
